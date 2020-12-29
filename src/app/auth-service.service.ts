@@ -21,8 +21,8 @@ export class AuthServiceService {
     if (user.userName !== '' && user.password !== '' ) {
 
       let Usuario = {
-        "Nome": user.userName,//"11234567890",
-        "ChaveAcesso": user.password//"09876543211"
+        "Nome": user.userName,
+        "ChaveAcesso": user.password
       };
 
       const headers = new HttpHeaders();
