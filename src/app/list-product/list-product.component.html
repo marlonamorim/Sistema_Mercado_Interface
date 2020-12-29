@@ -1,0 +1,30 @@
+<h1>
+  Cadastro de Produtos
+</h1>
+
+<table class="table table-success table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Código de Barras</th>
+      <th scope="col">Preço</th>
+      <th scope="col">Edição</th>
+      <th scope="col">Exclusão</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products; index as i">
+      <th scope="row">{{i+1}}</th>
+      <td>{{product.name}}</td>
+      <td>{{product.codigoBarras}}</td>
+      <td>{{formatPriceInStringMoney(product.price)}}</td>
+      <td>
+        <button [routerLink]="['/create-product', product.codigoBarras]" type="button" class="btn btn-warning">Editar</button>
+      </td>
+      <td>
+        <button (click)="deleteProduct(product.codigoBarras)" type="button" class="btn btn-danger">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
