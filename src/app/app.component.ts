@@ -1,4 +1,6 @@
+import { AuthServiceService } from './auth-service.service';
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'go';
+  isLoggedIn$: Observable<boolean>;
+
+  constructor(private authService: AuthServiceService) { }
+
+  ngOnInit() {
+    this.isLoggedIn$ = this.authService.isLoggedIn;
+  }
 }
